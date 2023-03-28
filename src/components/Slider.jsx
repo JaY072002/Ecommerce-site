@@ -62,18 +62,19 @@ const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-right: 10px;
+  padding-right: 100px;
 `;
 
 const Title = styled.h1`
-  font-size: 70px;
+  font-size: 60px;
   margin-bottom: 40px;
   font-weight: 500;
 `;
 
 const Desc = styled.p`
   margin-bottom: 40px;
-  font-size: 20px;
+  font-size: 16px;
+  line-height: 2;
   letter-spacing: 3px;
 `;
 
@@ -115,9 +116,9 @@ const Slider = () => {
         <ArrowLeftOutlinedIcon />
       </Arrow>
       <Wrapper slideIndex={slideIndex}>
-        {sliderItem.map((item, index) => {
+        {sliderItem.map((item) => {
           return (
-            <Slide bg={item.bg} key={index}>
+            <Slide bg={item.bg} key={item.id}>
               <ImageContainer>
                 <Image src={item.img} />
               </ImageContainer>

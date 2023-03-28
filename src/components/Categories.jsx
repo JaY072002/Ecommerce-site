@@ -10,13 +10,14 @@ const Container = styled.div`
   gap: 10px;
   justify-content: center;
   align-items: center;
+  margin-top: 150px;
 `;
 
 const Categories = () => {
   return (
     <Container>
-      {categoryItem.map((item, index) => {
-        return <CategoryItem key={index} item={item} />;
+      {categoryItem.map((item) => {
+        return <CategoryItem key={item.id} item={item} />;
       })}
     </Container>
   );
