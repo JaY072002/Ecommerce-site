@@ -10,18 +10,67 @@ import Announcement from "./components/Announcement";
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
 import Categories from "./pages/Categories";
+import Product from "./pages/Product";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Cart from "./pages/Cart";
 
 const App = () => {
   return (
     <Router>
-      <Navbar />
-      <Announcement />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/categories" element={<Categories />} />
+        <Route
+          path="/"
+          element={
+            <>
+              <Navbar />
+              <Announcement />
+              <Home />
+              <Newsletter />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/categories"
+          element={
+            <>
+              <Navbar />
+              <Announcement />
+              <Categories />
+              <Newsletter />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/product"
+          element={
+            <>
+              <Navbar />
+              <Announcement />
+              <Product />
+              <Newsletter />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <>
+              <Navbar />
+              <Announcement />
+              <Cart />
+              <Newsletter />
+              <Footer />
+            </>
+          }
+        />
+        <Route path="/register" element={<Register />} />
+
+        <Route path="/login" element={<Login />} />
       </Routes>
-      <Newsletter />
-      <Footer />
     </Router>
   );
 };

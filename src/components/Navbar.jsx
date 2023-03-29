@@ -2,6 +2,7 @@ import styled from "styled-components";
 import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
@@ -54,8 +55,10 @@ const Right = styled.div`
   align-items: center;
 `;
 
-const MenuItem = styled.div`
+const MenuItem = styled(Link)`
   font-size: 14px;
+  text-decoration: none;
+  color: #525252;
   cursor: pointer;
   margin-right: 20px;
 `;
@@ -75,9 +78,9 @@ const Navbar = () => {
           <Logo>LAMA.</Logo>
         </Center>
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>LOGIN</MenuItem>
-          <MenuItem>
+          <MenuItem to="/register">REGISTER</MenuItem>
+          <MenuItem to="/login">LOGIN</MenuItem>
+          <MenuItem to="/cart">
             <Badge badgeContent={4} color="primary">
               <ShoppingCartOutlinedIcon />
             </Badge>
