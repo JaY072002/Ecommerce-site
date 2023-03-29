@@ -7,13 +7,13 @@ const Container = styled.div`
   gap: 10px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 150px;
+  margin-top: ${(props) => (props.path === "/" ? "150px" : "30px")};
   padding: 20px;
 `;
 
 const Products = () => {
   return (
-    <Container>
+    <Container path={window.location.pathname}>
       {productData.map((item) => {
         return <Product item={item} key={item.id} />;
       })}
