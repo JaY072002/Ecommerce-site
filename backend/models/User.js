@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, default: mongoose } = require("mongoose");
 
 const validateEmail = (email) => {
   const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -23,10 +23,14 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
 
-const User = model("User", UserSchema);
+const User = mongoose.model("User", UserSchema);
 
 module.exports = User;

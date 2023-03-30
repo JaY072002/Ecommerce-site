@@ -85,6 +85,7 @@ const loginUser = async (req, res) => {
     const token = generateToken({
       id: isRegistered._id,
       username: isRegistered.username,
+      isAdmin: isRegistered.isAdmin,
     });
 
     res.cookie("token", token, { maxAge: 9000000, httpOnly: true });

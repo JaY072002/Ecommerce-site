@@ -1,4 +1,4 @@
-const { Schema } = require("mongoose");
+const { Schema, default: mongoose } = require("mongoose");
 
 const CartSchema = new Schema(
   {
@@ -9,7 +9,6 @@ const CartSchema = new Schema(
         quantity: { type: Number },
       },
     ],
-    
   },
   { timestamps: true }
 );

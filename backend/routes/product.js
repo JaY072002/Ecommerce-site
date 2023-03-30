@@ -1,11 +1,26 @@
 const router = require("express").Router();
+const {
+  createProduct,
+  updateProduct,
+  deleteProduct,
+  getSingleProduct,
+  getAllProducts,
+} = require("../controller/product");
+const { verifyTokenAndAdmin } = require("../middleware/verifyToken");
 
-// /register
+// Create a product
+router.post("/", verifyTokenAndAdmin, createProduct);
 
-router.get("/", (req, res) => {
-  res.send("get all products");
-});
+// Update a product
+router.put("/:id", verifyTokenAndAdmin, updateProduct);
 
-// login
+// Delete a product
+router.delete("/:id", verifyTokenAndAdmin, deleteProduct);
+
+// get single product
+router.get("/:id", getSingleProduct);
+
+// get all products
+router.get("/", getAllProducts);
 
 module.exports = router;
