@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -170,113 +171,125 @@ const SubSummaryContainerTitle = styled.div`
 
 const SubSummaryContainerPrice = styled.span``;
 
-const Cart = () => (
-  <Container>
-    <Title>YOUR BAG</Title>
-    <Top>
-      <TopButton type="transparent">CONTINUE SHOPPING</TopButton>
-      <TopTexts>
-        <TopText>Shopping Bag(2)</TopText>
-        <TopText>Your Wishlist(0)</TopText>
-      </TopTexts>
-      <TopButton type="filled">CHECKOUT NOW</TopButton>
-    </Top>
+const Cart = () => {
+  const navigate = useNavigate();
 
-    <Bottom>
-      <Wrapper>
-        <ProductWrapper>
-          <ProductContainer>
-            <Image src="https://static.wixstatic.com/media/ed506e_e47b004e5414486486e256cb717d305c~mv2.png/v1/fill/w_1822,h_1822,al_c/ed506e_e47b004e5414486486e256cb717d305c~mv2.png" />
-            <ProductInfoContainer>
-              <ProductName>
-                <Span>Product: </Span> JESSIE THUNDER SHOES
-              </ProductName>
-              <ProductId>
-                <Span>ID: </Span> 93813718293
-              </ProductId>
-              <ProductColor>s</ProductColor>
-              <ProductSize>
-                <Span>Size: </Span> M
-              </ProductSize>
-            </ProductInfoContainer>
-          </ProductContainer>
-          <PriceContainer>
-            <IncDecContainer>
-              <Button>-</Button>
-              <Quantity>2</Quantity>
-              <Button>+</Button>
-            </IncDecContainer>
-            <PriceInfo>
-              <Currency>$</Currency>
-              <Price>30</Price>
-            </PriceInfo>
-          </PriceContainer>
-        </ProductWrapper>
-        <Hr />
+  const handleCheckout = () => {
+    navigate("/payment");
+  };
 
-        <ProductWrapper>
-          <ProductContainer>
-            <Image src="https://static.wixstatic.com/media/ed506e_e47b004e5414486486e256cb717d305c~mv2.png/v1/fill/w_1822,h_1822,al_c/ed506e_e47b004e5414486486e256cb717d305c~mv2.png" />
-            <ProductInfoContainer>
-              <ProductName>
-                <Span>Product: </Span> JESSIE THUNDER SHOES
-              </ProductName>
-              <ProductId>
-                <Span>ID: </Span> 93813718293
-              </ProductId>
-              <ProductColor>s</ProductColor>
-              <ProductSize>
-                <Span>Size: </Span> M
-              </ProductSize>
-            </ProductInfoContainer>
-          </ProductContainer>
-          <PriceContainer>
-            <IncDecContainer>
-              <Button>-</Button>
-              <Quantity>2</Quantity>
-              <Button>+</Button>
-            </IncDecContainer>
-            <PriceInfo>
-              <Currency>$</Currency>
-              <Price>30</Price>
-            </PriceInfo>
-          </PriceContainer>
-        </ProductWrapper>
-        <Hr />
-      </Wrapper>
-
-      <SummaryMainContainer>
-        <SummaryContainer>
-          <Title type="summary">ORDER SUMMARY</Title>
-          <SubSummaryContainer>
-            <SubSummaryContainerTitle>Subtotal</SubSummaryContainerTitle>
-            <SubSummaryContainerPrice>$80</SubSummaryContainerPrice>
-          </SubSummaryContainer>
-          <SubSummaryContainer>
-            <SubSummaryContainerTitle>
-              Estimated Shipping
-            </SubSummaryContainerTitle>
-            <SubSummaryContainerPrice>$5.90</SubSummaryContainerPrice>
-          </SubSummaryContainer>
-          <SubSummaryContainer>
-            <SubSummaryContainerTitle>
-              Shipping Discount
-            </SubSummaryContainerTitle>
-            <SubSummaryContainerPrice>$-5.90</SubSummaryContainerPrice>
-          </SubSummaryContainer>
-          <SubSummaryContainer>
-            <SubSummaryContainerTitle type="total">
-              Total
-            </SubSummaryContainerTitle>
-            <SubSummaryContainerPrice>$80</SubSummaryContainerPrice>
-          </SubSummaryContainer>
-          <TopButton type="filled" btn="checkout">
+  return (
+    <>
+      <Container>
+        <Title>YOUR BAG</Title>
+        <Top>
+          <TopButton type="transparent">CONTINUE SHOPPING</TopButton>
+          <TopTexts>
+            <TopText>Shopping Bag(2)</TopText>
+            <TopText>Your Wishlist(0)</TopText>
+          </TopTexts>
+          <TopButton type="filled" onClick={handleCheckout}>
             CHECKOUT NOW
           </TopButton>
-        </SummaryContainer>
-      </SummaryMainContainer>
-    </Bottom>
-  </Container>
-);
+        </Top>
+
+        <Bottom>
+          <Wrapper>
+            <ProductWrapper>
+              <ProductContainer>
+                <Image src="https://static.wixstatic.com/media/ed506e_e47b004e5414486486e256cb717d305c~mv2.png/v1/fill/w_1822,h_1822,al_c/ed506e_e47b004e5414486486e256cb717d305c~mv2.png" />
+                <ProductInfoContainer>
+                  <ProductName>
+                    <Span>Product: </Span> JESSIE THUNDER SHOES
+                  </ProductName>
+                  <ProductId>
+                    <Span>ID: </Span> 93813718293
+                  </ProductId>
+                  <ProductColor>s</ProductColor>
+                  <ProductSize>
+                    <Span>Size: </Span> M
+                  </ProductSize>
+                </ProductInfoContainer>
+              </ProductContainer>
+              <PriceContainer>
+                <IncDecContainer>
+                  <Button>-</Button>
+                  <Quantity>2</Quantity>
+                  <Button>+</Button>
+                </IncDecContainer>
+                <PriceInfo>
+                  <Currency>$</Currency>
+                  <Price>30</Price>
+                </PriceInfo>
+              </PriceContainer>
+            </ProductWrapper>
+            <Hr />
+
+            <ProductWrapper>
+              <ProductContainer>
+                <Image src="https://static.wixstatic.com/media/ed506e_e47b004e5414486486e256cb717d305c~mv2.png/v1/fill/w_1822,h_1822,al_c/ed506e_e47b004e5414486486e256cb717d305c~mv2.png" />
+                <ProductInfoContainer>
+                  <ProductName>
+                    <Span>Product: </Span> JESSIE THUNDER SHOES
+                  </ProductName>
+                  <ProductId>
+                    <Span>ID: </Span> 93813718293
+                  </ProductId>
+                  <ProductColor>s</ProductColor>
+                  <ProductSize>
+                    <Span>Size: </Span> M
+                  </ProductSize>
+                </ProductInfoContainer>
+              </ProductContainer>
+              <PriceContainer>
+                <IncDecContainer>
+                  <Button>-</Button>
+                  <Quantity>2</Quantity>
+                  <Button>+</Button>
+                </IncDecContainer>
+                <PriceInfo>
+                  <Currency>$</Currency>
+                  <Price>30</Price>
+                </PriceInfo>
+              </PriceContainer>
+            </ProductWrapper>
+            <Hr />
+          </Wrapper>
+
+          <SummaryMainContainer>
+            <SummaryContainer>
+              <Title type="summary">ORDER SUMMARY</Title>
+              <SubSummaryContainer>
+                <SubSummaryContainerTitle>Subtotal</SubSummaryContainerTitle>
+                <SubSummaryContainerPrice>$80</SubSummaryContainerPrice>
+              </SubSummaryContainer>
+              <SubSummaryContainer>
+                <SubSummaryContainerTitle>
+                  Estimated Shipping
+                </SubSummaryContainerTitle>
+                <SubSummaryContainerPrice>$5.90</SubSummaryContainerPrice>
+              </SubSummaryContainer>
+              <SubSummaryContainer>
+                <SubSummaryContainerTitle>
+                  Shipping Discount
+                </SubSummaryContainerTitle>
+                <SubSummaryContainerPrice>$-5.90</SubSummaryContainerPrice>
+              </SubSummaryContainer>
+              <SubSummaryContainer>
+                <SubSummaryContainerTitle type="total">
+                  Total
+                </SubSummaryContainerTitle>
+                <SubSummaryContainerPrice>$80</SubSummaryContainerPrice>
+              </SubSummaryContainer>
+              <TopButton type="filled" btn="checkout" onClick={handleCheckout}>
+                CHECKOUT NOW
+              </TopButton>
+            </SummaryContainer>
+          </SummaryMainContainer>
+        </Bottom>
+      </Container>
+    </>
+  );
+};
 
 export default Cart;

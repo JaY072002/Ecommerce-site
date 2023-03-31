@@ -14,6 +14,8 @@ import Product from "./pages/Product";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
+import Payment from "./pages/Payment";
+import Success from "./pages/Success";
 
 const App = () => {
   return (
@@ -70,6 +72,8 @@ const App = () => {
         <Route path="/register" element={<Register />} />
 
         <Route path="/login" element={<Login />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </Router>
   );

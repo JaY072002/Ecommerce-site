@@ -2,7 +2,7 @@ const { errorLog, successLog, infoLog } = require("../helper/logHelper");
 const Product = require("../models/Product");
 
 const createProduct = async (req, res) => {
-  infoLog("createProduct exit");
+  infoLog("createProduct entry");
   try {
     const savedProduct = await Product.create(req.body);
     successLog("Saved Product Successfully");
@@ -72,8 +72,30 @@ const getSingleProduct = async (req, res) => {
 const getAllProducts = async (req, res) => {
   infoLog("getAllProduct entry");
 
+  const { new: qnew, category } = req?.query;
+
+  const query = category
+    ? {
+        categories: {
+          $in: [category],
+        },
+      }
+    : {};
+
+  const sort = qnew ? { createdAt: -1 } : {};
+
+  let products;
+
   try {
-    const products = await Product.find();
+    if (qnew && category) {
+      products = await Product.find(query).sort(sort).limit(2);
+    } else if (qnew) {
+      products = await Product.find().sort(sort).limit(2);
+    } else if (category) {
+      products = await Product.find(query);
+    } else {
+      products = await Product.find();
+    }
 
     successLog("Get All Product Successfully");
     infoLog("getAllProducts exit");
@@ -83,7 +105,6 @@ const getAllProducts = async (req, res) => {
     infoLog("getAllProducts exit");
     return res.status(500).json({ isAllProductGet: false });
   }
-  
 };
 
 module.exports = {
